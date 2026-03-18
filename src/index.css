@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Responsive Background Image Styling */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+}
+
+@layer utilities {
+  
+  @media (min-width: 1024px) {
+    
+    div[style*="backgroundAttachment: fixed"] {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  
+  @media (max-width: 1023px) {
+    
+    div[style*="backgroundAttachment: fixed"] {
+      background-attachment: scroll;
+    }
+  }
+}
