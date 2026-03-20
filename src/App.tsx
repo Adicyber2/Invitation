@@ -19,7 +19,8 @@ import confetti from 'canvas-confetti';
 import didiImage from './public/Didi.jpeg';
 import bhauImage from './public/Bhau.jpeg';
 import BackgraundImg from './public/WhatsApp Image 2026-03-16 at 10.50.14 PM.jpeg'
-
+import Background2 from './public/WhatsApp Image 2026-03-18 at 10.23.40 PM.jpeg'
+import { object } from 'motion/react-client';
 // Initialize Gemini AI
 const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
@@ -243,15 +244,19 @@ export default function App() {
             transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center text-white text-center px-6 overflow-hidden min-h-screen"
           >
-            <div className="absolute top-0 left-0 right-0 w-full min-h-screen z-0 overflow-hidden">
+            <div className="fixed inset-0 z-0 overflow-hidden">
               <img 
-                src={BackgraundImg}
-                className="w-full h-full object-cover"
+                src={Background2}
+                className="w-full h-full object-contain"
                 style={{
-                  objectPosition: 'center top'
+                  objectPosition: 'center top',
+                  objectFit: 'contain',
+                  filter: 'blur(1px)',
+                  transform: 'scale(1.03)',
                 }}
                 alt="Wedding Background"
               />
+              <div className="absolute inset-0 bg-black/40"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60"></div>
             </div>
             
@@ -261,16 +266,16 @@ export default function App() {
               transition={{ delay: 0.5 }}
               className="relative z-10 space-y-6 max-w-md"
             >
-              <div className="space-y-2">
-                <p className="font-montserrat tracking-[0.4em] text-xs uppercase text-gold">निमंत्रण</p>
+              <div className="space-y-2 ">
+                <p className="font-montserrat tracking-[0.4em] text-xs uppercase  text-amber-300 ">निमंत्रण</p>
                 <div className="w-12 h-0.5 bg-gold mx-auto"></div>
               </div>
               
-              <h1 className="font-yatra text-6xl md:text-8xl gold-gradient-text text-glow py-2">शुभविवाह</h1>
+              <h1 className="font-yatra text-6xl md:text-8xl   text-amber-300  py-2">शुभविवाह</h1>
               
               <div className="space-y-4">
                 <h2 className="font-yatra text-4xl md:text-5xl leading-tight">ऋतुजा आणि आनंद</h2>
-                <div className="flex items-center justify-center gap-4 text-gold/80 font-montserrat text-sm tracking-widest">
+                <div className="flex items-center justify-center gap-4 text-amber-300 font-montserrat text-sm tracking-widest">
                   <span>१० मे २०२६</span>
                   <span className="w-1 h-1 bg-gold rounded-full"></span>
                   <span>गंगोत्री मंगल कार्यालय</span>
@@ -279,7 +284,7 @@ export default function App() {
               
               <div className="pt-8 space-y-4">
                 <p className="text-lg opacity-80 italic">सप्रेम नमस्कार,</p>
-                <p className="text-2xl font-semibold font-yatra leading-relaxed text-gold">{guestName}</p>
+                <p className="text-2xl font-semibold font-yatra leading-relaxed  text-amber-300 ">{guestName}</p>
                 <p className="text-sm opacity-70 max-w-[280px] mx-auto">आमच्या लग्नाच्या शुभ मुहूर्तावर आपणास सहकुटुंब सहपरिवार आग्रहाचे निमंत्रण!</p>
                 
                 <button 
@@ -637,6 +642,25 @@ export default function App() {
             </div>
           </section>
 
+
+          {/* new added section */}
+
+           <section className="py-16 px-6 bg-cream text-center mb-1">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-2xl mx-auto space-y-8"
+            >
+              <h3 className="font-playfair text-2xl text-gold">।। आमच्या दीदीच्या लग्नाला यायचं बरं का! ।।</h3>
+              <div className="text-balance" >
+                <h3 >वैभवी, सागरीका ,क्षितिजा, मोहित, शंतनु.</h3>
+              
+              </div>
+            </motion.div>
+          </section>
+
+
           {/* Vinit Section */}
           <section className="py-16 px-6 bg-cream text-center">
             <motion.div 
@@ -645,6 +669,7 @@ export default function App() {
               viewport={{ once: true }}
               className="max-w-2xl mx-auto space-y-8"
             >
+              <h4 className="text-xl font-playfair">* अरविंद घोम व माया घोम *<br /><span>(यांची भाची)</span> </h4>
               <h3 className="font-playfair text-2xl text-gold">।। विनीत ।।</h3>
               <div className="grid grid-cols-2 gap-4 text-charcoal/80">
                 <p>सौ. नंदाताई अ. ठाकरे</p>
@@ -656,7 +681,7 @@ export default function App() {
           </section>
 
           {/* Footer */}
-          <footer className="py-12 px-6 text-center bg-white border-t border-gold/10">
+          <footer className="py-12 px-6 text-center bg-white border-t border-gold/10 mb-10">
             <h2 className="font-playfair text-3xl text-gold mb-4">ऋतुजा आणि आनंद</h2>
             <p className="text-xs text-charcoal/40 uppercase tracking-[0.3em] mb-6">आमच्या आनंदात सहभागी झाल्याबद्दल धन्यवाद</p>
             <div className="pt-6 border-t border-gold/5 max-w-xs mx-auto">
