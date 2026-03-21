@@ -19,7 +19,7 @@ import confetti from 'canvas-confetti';
 import didiImage from './public/Didi.jpeg';
 import bhauImage from './public/Bhau.jpeg';
 import BackgraundImg from './public/WhatsApp Image 2026-03-16 at 10.50.14 PM.jpeg'
-import Background2 from './public/WhatsApp Image 2026-03-18 at 10.23.40 PM.jpeg'
+import Background2 from './public/WhatsApp Image 2026-03-20 at 10.40.32 PM.jpeg'
 import { object } from 'motion/react-client';
 // Initialize Gemini AI
 const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
@@ -246,7 +246,7 @@ export default function App() {
           >
             <div className="fixed inset-0 z-0 overflow-hidden">
               <img 
-                src={Background2}
+                src={BackgraundImg}
                 className="w-full h-full object-contain"
                 style={{
                   objectPosition: 'center top',
@@ -645,17 +645,32 @@ export default function App() {
 
           {/* new added section */}
 
-           <section className="py-16 px-6 bg-cream text-center mb-1">
+           <section
+             className="py-20 md:py-24 px-6 text-center mb-1 bg-cream"
+             style={{
+               backgroundImage: `url('${Background2}')`,
+               backgroundSize: 'cover',
+               backgroundPosition: 'center 28%',
+               backgroundRepeat: 'no-repeat',
+               minHeight: '480px',
+               maxHeight: '700px',
+               transform: 'scale(1.03)',
+             }}
+           >
+            <div className="absolute inset-0 bg-black/30 font-bold"></div>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-2xl mx-auto space-y-8"
+              className="relative z-10 max-w-2xl mx-auto space-y-8 text-center"
             >
-              <h3 className="font-playfair text-2xl text-gold">।। आमच्या दीदीच्या लग्नाला यायचं बरं का! ।।</h3>
-              <div className="text-balance" >
-                <h3 >वैभवी, सागरीका ,क्षितिजा, मोहित, शंतनु.</h3>
-              
+              <h3 className="font-playfair text-3xl md:text-4xl text-white shadow-lg px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 via-gold to-amber-500 inline-block">
+                ।। आमच्या दीदीच्या लग्नाला यायचं बरं का! ।।
+              </h3>
+              <div className="text-balance ">
+                <h3 className="text-2xl md:text-3xl text-white font-bold tracking-wide leading-tight drop-shadow-lg">
+                  वैभवी, सागरीका, क्षितिजा, मोहित, शंतनु.
+                </h3>
               </div>
             </motion.div>
           </section>
