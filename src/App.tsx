@@ -649,8 +649,8 @@ export default function App() {
              className="py-20 md:py-24 px-6 text-center mb-1 bg-cream"
              style={{
                backgroundImage: `url('${Background2}')`,
-               backgroundSize: 'cover',
-               backgroundPosition: 'center 28%',
+               backgroundSize: 'contain',
+               backgroundPosition: 'center ',
                backgroundRepeat: 'no-repeat',
                minHeight: '480px',
                maxHeight: '700px',
