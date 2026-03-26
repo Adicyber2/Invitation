@@ -646,7 +646,7 @@ export default function App() {
           {/* new added section */}
 
            <section
-             className="py-20 md:py-24 px-6 text-center mb-1 bg-cream"
+             className="py-3 md:py-24 px-6 text-center mb-1 bg-cream"
              style={{
                backgroundImage: `url('${Background2}')`,
                backgroundSize: 'contain',
@@ -668,7 +668,7 @@ export default function App() {
                 ।। आमच्या दीदीच्या लग्नाला यायचं बरं का! ।।
               </h3>
               <div className="text-balance ">
-                <h3 className="text-2xl md:text-3xl text-white font-bold tracking-wide leading-tight drop-shadow-lg">
+                <h3 className="text-xl md:text-2xl text-white font-bold tracking-wide leading-tight drop-shadow-lg">
                   वैभवी, सागरीका, क्षितिजा, मोहित, शंतनु.
                 </h3>
               </div>
