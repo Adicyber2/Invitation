@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import YouTube, { YouTubeProps } from 'react-youtube';
 import { 
   MailOpen, 
@@ -16,13 +16,13 @@ import {
 } from 'lucide-react';
 import { GoogleGenAI } from "@google/genai";
 import confetti from 'canvas-confetti';
-import didiImage from './public/Didi.jpeg';
-import bhauImage from './public/Bhau.jpeg';
-import BackgraundImg from './public/WhatsApp Image 2026-03-16 at 10.50.14 PM.jpeg'
-import Background2 from './public/WhatsApp Image 2026-03-20 at 10.40.32 PM.jpeg'
+import didiImage from './assets/Didi.jpeg';
+import bhauImage from './assets/Bhau.jpeg';
+import BackgraundImg from './assets/background1.jpeg';
+import Background2 from './assets/background2.jpeg';
 import { object } from 'motion/react-client';
 // Initialize Gemini AI
-const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+// const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
 interface Comment {
   name: string;
@@ -78,36 +78,36 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const generateAIImages = async () => {
-    // Only generate groom image if not already set
-    if (groomImage) return;
-    setIsGeneratingImages(true);
-    try {
-      const model = 'gemini-2.5-flash-image';
+  // const generateAIImages = async () => {
+  //   // Only generate groom image if not already set
+  //   if (groomImage) return;
+  //   setIsGeneratingImages(true);
+  //   try {
+  //     const model = 'gemini-2.5-flash-image';
       
-      const groomPrompt = "A handsome Indian groom in a traditional Marathi wedding sherwani and pheta (turban), smiling, professional wedding photography, luxury bokeh background, high resolution.";
+  //     const groomPrompt = "A handsome Indian groom in a traditional Marathi wedding sherwani and pheta (turban), smiling, professional wedding photography, luxury bokeh background, high resolution.";
 
-      const groomRes = await genAI.models.generateContent({
-        model,
-        contents: [{ parts: [{ text: groomPrompt }] }]
-      });
+  //     const groomRes = await genAI.models.generateContent({
+  //       model,
+  //       contents: [{ parts: [{ text: groomPrompt }] }]
+  //     });
 
-      const extractImage = (response: any) => {
-        for (const part of response.candidates[0].content.parts) {
-          if (part.inlineData) return `data:image/png;base64,${part.inlineData.data}`;
-        }
-        return null;
-      };
+  //     const extractImage = (response: any) => {
+  //       for (const part of response.candidates[0].content.parts) {
+  //         if (part.inlineData) return `data:image/png;base64,${part.inlineData.data}`;
+  //       }
+  //       return null;
+  //     };
 
-      setGroomImage(extractImage(groomRes));
-    } catch (error) {
-      console.error("Error generating groom image:", error);
-      // Fallback to Unsplash if AI fails
-      setGroomImage("https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800");
-    } finally {
-      setIsGeneratingImages(false);
-    }
-  };
+  //     setGroomImage(extractImage(groomRes));
+  //   } catch (error) {
+  //     console.error("Error generating groom image:", error);
+  //     // Fallback to Unsplash if AI fails
+  //     setGroomImage("https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800");
+  //   } finally {
+  //     setIsGeneratingImages(false);
+  //   }
+  // };
 
   const openInvitation = () => {
     setIsOpen(true);
@@ -685,12 +685,16 @@ export default function App() {
               className="max-w-2xl mx-auto space-y-8"
             >
               <h4 className="text-xl font-playfair">* अरविंद घोम व माया घोम *<br /><span>(यांची भाची)</span> </h4>
-              <h3 className="font-playfair text-2xl text-gold">।। विनीत ।।</h3>
+              <h3 className="font-playfair text-2xl text-gold">|| आपले कृपाभिलाषी ||</h3>
               <div className="grid grid-cols-2 gap-4 text-charcoal/80">
-                <p>सौ. नंदाताई अ. ठाकरे</p>
-                <p>सौ. कल्पनाताई सु. ठाकरे</p>
-                <p>श्रीमती वंदनाताई कि. ठाकरे</p>
-                <p>सौ. चैतालीताई म. ठाकरे</p>
+             <p>श्री. अरूणराव भ. ठाकरे</p>
+             <p>श्री. मनोज अ. ठाकरे</p>
+             <p>श्री. सुरेशराव भ. ठाकरे</p>
+              <p>चि. शुभम सु. ठाकरे</p>
+              <p> डॉ. श्री. गणेशराव म. ठाकरे</p>
+               
+                <p>चि. शंतनु कि. ठाकरे</p>
+                
               </div>
             </motion.div>
           </section>
