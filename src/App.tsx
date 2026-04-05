@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { GoogleGenAI } from "@google/genai";
 import confetti from 'canvas-confetti';
-import didiImage from './assets/Didi.jpeg';
+import didiImage from './assets/temp.jpeg';
 import bhauImage from './assets/Bhau.jpeg';
 import BackgraundImg from './assets/background1.jpeg';
 import Background2 from './assets/background2.jpeg';
